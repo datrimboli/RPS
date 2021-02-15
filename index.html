@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  RPS Game
+
+  <script>
+
+    let choices = ['r', 'p', 's']
+    let ties = 0
+    let wins = 0
+    let losses = 0
+    let invaled = 0
+
+    for (let i = 0; i < 10; i++) {
+
+      let choice = prompt(`What would you like to play? Choose r, p, or s`)
+
+      let compChoice = choices[Math.floor(Math.random() * choices.length)]
+
+      if (choices.indexOf(choice) !== -1) {
+        if (choice === compChoice) {
+          ties++
+          alert(`You tied! Total ties so far ${ties}`)
+        }
+        else if ((choice === 'r' && compChoice === 's') ||
+          (choice === 's' && compChoice === 'p') ||
+          (choice === 'p' && compChoice === 'r')) {
+          wins++
+          alert(`You won! Total wins so far ${wins}`)
+        }
+        else {
+          losses++
+          alert(`You lost! Total losses so far ${losses}`)
+        }
+      } else {
+        invaled++
+        alert(`Please pick either r, p, or s`)
+      }
+    }
+
+    alert(`Results:
+          -----------------
+          Ties:    ${ties}
+          Wins:    ${wins}
+          Losses:  ${losses}
+          Invaled: ${invaled}
+          -----------------`)
+ 
+  </script>
+</body>
+
+</html>
